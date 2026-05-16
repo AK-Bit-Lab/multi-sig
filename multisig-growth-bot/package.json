@@ -7,9 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "celopulse-sdk": "^0.1.1",
-    "celoclicker-game-sdk": "^0.1.1",
-    "celo-arcade-sdk": "^0.1.1",
+    "celopulse-sdk": "^0.1.2",
+    "celoclicker-game-sdk": "^0.1.2",
+    "celo-arcade-sdk": "^0.1.2",
     "@bamzzstudio/contenthub-sdk": "^1.0.1"
   }
 }
