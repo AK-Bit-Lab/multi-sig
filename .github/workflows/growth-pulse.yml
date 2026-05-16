@@ -11,14 +11,10 @@ env:
 permissions:
   contents: read
 
-concurrency:
-  group: growth-pulse-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
   growth-pulse:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       CELO_NETWORK: mainnet
     steps:
