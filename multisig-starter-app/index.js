@@ -1,8 +1,3 @@
-import { CELO_MAINNET_CHAIN_ID, BASE_REWARD, ACTION_STAKE } from "celopulse-sdk";
-import { APP_NAME, DEFAULT_CONTRACT_ADDRESS as CLICKER_CONTRACT } from "celoclicker-game-sdk";
-import { DEFAULT_CONTRACT_ADDRESS as ARCADE_CONTRACT, ENTRY_FEE, createArcadeConfig } from "celo-arcade-sdk";
-import { CONTRACTS, USDM_ADDRESS } from "@bamzzstudio/contenthub-sdk";
-
 const NETWORK = process.env.CELO_NETWORK || "mainnet";
 
 async function runMultiSigStarterApp() {
@@ -10,6 +5,7 @@ async function runMultiSigStarterApp() {
   console.log(`Network: ${NETWORK}`);
 
   try {
+    const { CELO_MAINNET_CHAIN_ID, BASE_REWARD, ACTION_STAKE } = await import("celopulse-sdk");
     console.log(`CeloPulse chain: ${CELO_MAINNET_CHAIN_ID}`);
     console.log(`Base reward: ${String(BASE_REWARD)}`);
     console.log(`Action stake key: ${ACTION_STAKE}`);
@@ -18,6 +14,7 @@ async function runMultiSigStarterApp() {
   }
 
   try {
+    const { APP_NAME, DEFAULT_CONTRACT_ADDRESS: CLICKER_CONTRACT } = await import("celoclicker-game-sdk");
     console.log(`CeloClicker app: ${APP_NAME}`);
     console.log(`CeloClicker contract: ${CLICKER_CONTRACT}`);
   } catch (error) {
@@ -25,6 +22,7 @@ async function runMultiSigStarterApp() {
   }
 
   try {
+    const { DEFAULT_CONTRACT_ADDRESS: ARCADE_CONTRACT, ENTRY_FEE, createArcadeConfig } = await import("celo-arcade-sdk");
     console.log(`Arcade contract: ${ARCADE_CONTRACT}`);
     console.log(`Entry fee: ${String(ENTRY_FEE)}`);
     const config = createArcadeConfig({});
@@ -34,6 +32,7 @@ async function runMultiSigStarterApp() {
   }
 
   try {
+    const { CONTRACTS, USDM_ADDRESS } = await import("@bamzzstudio/contenthub-sdk");
     const chainIds = Object.keys(CONTRACTS);
     console.log(`ContentHub supported chains: ${chainIds.join(", ")}`);
     console.log(`USDm: ${USDM_ADDRESS}`);

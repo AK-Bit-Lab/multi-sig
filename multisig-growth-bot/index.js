@@ -1,28 +1,3 @@
-import {
-  CELO_MAINNET_CHAIN_ID,
-  BASE_REWARD,
-  ACTION_STAKE,
-  ACTION_CHECK_IN,
-} from "celopulse-sdk";
-import {
-  APP_NAME,
-  GAME_CONFIG,
-  DEFAULT_CONTRACT_ADDRESS as CLICKER_CONTRACT,
-  CELO_MAINNET_CHAIN_ID as CLICKER_CHAIN_ID,
-} from "celoclicker-game-sdk";
-import {
-  DEFAULT_CONTRACT_ADDRESS as ARCADE_CONTRACT,
-  ENTRY_FEE,
-  Difficulty,
-  GameType,
-  createArcadeConfig,
-} from "celo-arcade-sdk";
-import {
-  CONTRACTS,
-  USDM_ADDRESS,
-  USDC_ADDRESS,
-} from "@bamzzstudio/contenthub-sdk";
-
 const NETWORK = process.env.CELO_NETWORK || "mainnet";
 
 function toLogValue(value) {
@@ -41,6 +16,7 @@ async function runMultiSigGrowthBot() {
 
   console.log("\nVerifying CeloPulse SDK...");
   try {
+    const { CELO_MAINNET_CHAIN_ID, BASE_REWARD, ACTION_STAKE, ACTION_CHECK_IN } = await import("celopulse-sdk");
     console.log(`CeloPulse chain ID: ${CELO_MAINNET_CHAIN_ID}`);
     console.log(`Base reward: ${toLogValue(BASE_REWARD)}`);
     console.log(`Action stake: ${ACTION_STAKE}`);
@@ -52,6 +28,7 @@ async function runMultiSigGrowthBot() {
 
   console.log("\nVerifying CeloClicker SDK...");
   try {
+    const { APP_NAME, GAME_CONFIG, DEFAULT_CONTRACT_ADDRESS: CLICKER_CONTRACT, CELO_MAINNET_CHAIN_ID: CLICKER_CHAIN_ID } = await import("celoclicker-game-sdk");
     console.log(`App name: ${APP_NAME}`);
     console.log(`Clicker chain ID: ${CLICKER_CHAIN_ID}`);
     console.log(`Clicker contract: ${CLICKER_CONTRACT}`);
@@ -63,6 +40,7 @@ async function runMultiSigGrowthBot() {
 
   console.log("\nVerifying Celo Arcade SDK...");
   try {
+    const { DEFAULT_CONTRACT_ADDRESS: ARCADE_CONTRACT, ENTRY_FEE, Difficulty, GameType, createArcadeConfig } = await import("celo-arcade-sdk");
     console.log(`Arcade contract: ${ARCADE_CONTRACT}`);
     console.log(`Entry fee: ${toLogValue(ENTRY_FEE)}`);
     console.log(`Difficulty levels: ${Object.keys(Difficulty).join(", ")}`);
@@ -76,6 +54,7 @@ async function runMultiSigGrowthBot() {
 
   console.log("\nVerifying ContentHub SDK...");
   try {
+    const { CONTRACTS, USDM_ADDRESS, USDC_ADDRESS } = await import("@bamzzstudio/contenthub-sdk");
     const celoContracts = CONTRACTS[42220] ?? CONTRACTS[Object.keys(CONTRACTS)[0]];
     console.log(`ContentHub contracts chain: ${Object.keys(CONTRACTS)[0]}`);
     console.log(`ContentHub contracts: ${toLogValue(celoContracts)}`);
