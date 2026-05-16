@@ -33,17 +33,17 @@ jobs:
       - name: Install and run growth bot
         working-directory: ./multisig-growth-bot
         run: |
+          npm install
           for i in {1..10}; do
             echo "Growth bot iteration $i/10"
-            npm install
             npm run start
           done
 
       - name: Install and run starter app
         working-directory: ./multisig-starter-app
         run: |
+          npm install
           for i in {1..10}; do
             echo "Starter app iteration $i/10"
-            npm install
             npm run start
           done
