@@ -1,0 +1,15 @@
+{
+  "name": "multisig-starter-app",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "celopulse-sdk": "^0.1.1",
+    "celoclicker-game-sdk": "^0.1.1",
+    "celo-arcade-sdk": "^0.1.1",
+    "@bamzzstudio/contenthub-sdk": "^1.0.1"
+  }
+}
