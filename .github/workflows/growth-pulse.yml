@@ -34,19 +34,19 @@ jobs:
       - name: Install and run growth bot
         working-directory: ./multisig-growth-bot
         run: |
+          rm -rf node_modules
+          npm install --no-audit --no-fund
           for i in {1..3}; do
             echo "Growth bot iteration $i/3"
-            rm -rf node_modules
-            npm install --no-audit --no-fund
             npm run start
           done
 
       - name: Install and run starter app
         working-directory: ./multisig-starter-app
         run: |
+          rm -rf node_modules
+          npm install --no-audit --no-fund
           for i in {1..3}; do
             echo "Starter app iteration $i/3"
-            rm -rf node_modules
-            npm install --no-audit --no-fund
             npm run start
           done
