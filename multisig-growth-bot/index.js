@@ -55,8 +55,9 @@ async function runMultiSigGrowthBot() {
   console.log("\nVerifying ContentHub SDK...");
   try {
     const { CONTRACTS, USDM_ADDRESS, USDC_ADDRESS } = await import("@bamzzstudio/contenthub-sdk");
-    const celoContracts = CONTRACTS[42220] ?? CONTRACTS[Object.keys(CONTRACTS)[0]];
-    console.log(`ContentHub contracts chain: ${Object.keys(CONTRACTS)[0]}`);
+    const celoContracts = CONTRACTS["celo"] ?? CONTRACTS[Object.keys(CONTRACTS)[0]];
+    const chainName = CONTRACTS["celo"] ? "celo" : Object.keys(CONTRACTS)[0];
+    console.log(`ContentHub contracts chain: ${chainName}`);
     console.log(`ContentHub contracts: ${toLogValue(celoContracts)}`);
     console.log(`USDm address: ${USDM_ADDRESS}`);
     console.log(`USDC address: ${USDC_ADDRESS}`);

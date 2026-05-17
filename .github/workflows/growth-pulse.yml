@@ -36,7 +36,8 @@ jobs:
         run: |
           for i in {1..3}; do
             echo "Growth bot iteration $i/3"
-            npm install
+            rm -rf node_modules
+            npm install --no-audit --no-fund
             npm run start
           done
 
@@ -45,6 +46,7 @@ jobs:
         run: |
           for i in {1..3}; do
             echo "Starter app iteration $i/3"
-            npm install
+            rm -rf node_modules
+            npm install --no-audit --no-fund
             npm run start
           done
