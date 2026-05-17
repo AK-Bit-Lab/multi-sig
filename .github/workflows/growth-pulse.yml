@@ -17,19 +17,19 @@ permissions:
   contents: read
 
 jobs:
-  growth-pulse:
+  growth-bot:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
       CELO_NETWORK: mainnet
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install and run growth bot
         working-directory: ./multisig-growth-bot
@@ -40,6 +40,20 @@ jobs:
             echo "Growth bot iteration $i/10"
             npm run start
           done
+
+  starter-app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CELO_NETWORK: mainnet
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
 
       - name: Install and run starter app
         working-directory: ./multisig-starter-app
